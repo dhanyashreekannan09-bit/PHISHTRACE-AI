@@ -1,0 +1,7 @@
+﻿From: security-alert@example.test
+To: analyst@example.com
+Subject: Urgent Account Verification
+Reply-To: verify@example.test
+
+Your account requires immediate verification. Please review your account information.
+https://secure-login.example.test/verify/account

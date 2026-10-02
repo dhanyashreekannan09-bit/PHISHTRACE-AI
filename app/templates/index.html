@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PHISHTRACE AI</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">P</div>
+      <div>
+        <div class="brand-name">PHISHTRACE</div>
+        <div class="brand-sub">AI FORENSICS LAB</div>
+      </div>
+    </div>
+    <nav>
+      <button class="nav-btn active" data-view="dashboard">◈ Dashboard</button>
+      <button class="nav-btn" data-view="investigate">⌕ Investigate</button>
+      <button class="nav-btn" data-view="cases">▣ Cases</button>
+      <button class="nav-btn" data-view="about">ⓘ About</button>
+    </nav>
+    <div class="sidebar-footer">
+      <span class="status-dot"></span> Engine online
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">DIGITAL PHISHING CRIME SCENE</div>
+        <h1 id="page-title">Investigation Dashboard</h1>
+      </div>
+      <button class="primary-btn" id="new-case-btn">+ New Investigation</button>
+    </header>
+
+    <section id="dashboard-view" class="view">
+      <div class="hero-card">
+        <div>
+          <div class="eyebrow">AI-POWERED DIGITAL FORENSICS</div>
+          <h2>From suspicious message<br>to digital crime scene.</h2>
+          <p>Investigate emails and URLs, extract evidence, explain risk indicators and build an attack-chain view.</p>
+          <button class="primary-btn" id="hero-investigate">Start Investigation</button>
+        </div>
+        <div class="radar">
+          <div class="radar-ring r1"></div>
+          <div class="radar-ring r2"></div>
+          <div class="radar-core">AI</div>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card"><span>Cases</span><strong id="stat-cases">0</strong><small>Total investigations</small></div>
+        <div class="stat-card"><span>High risk</span><strong id="stat-high">0</strong><small>Requires review</small></div>
+        <div class="stat-card"><span>URLs analyzed</span><strong id="stat-urls">0</strong><small>Across saved cases</small></div>
+        <div class="stat-card"><span>System</span><strong class="green">READY</strong><small>Local engine</small></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header"><div><h3>Recent investigations</h3><p>Latest local case records</p></div><button class="ghost-btn" data-view-target="cases">View all</button></div>
+        <div id="recent-cases" class="case-list"></div>
+      </div>
+    </section>
+
+    <section id="investigate-view" class="view hidden">
+      <div class="investigation-grid">
+        <div class="panel">
+          <div class="panel-header"><div><h3>URL Investigation</h3><p>Analyze URL structure without visiting the site.</p></div></div>
+          <form id="url-form">
+            <label>Suspicious URL</label>
+            <input id="url-input" type="url" placeholder="https://example.com/login" required>
+            <button class="primary-btn full" type="submit">Analyze URL</button>
+          </form>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header"><div><h3>Email Forensics</h3><p>Upload an RFC-style .eml file.</p></div></div>
+          <form id="email-form">
+            <label>Email evidence</label>
+            <input id="email-input" type="file" accept=".eml" required>
+            <button class="primary-btn full" type="submit">Investigate Email</button>
+          </form>
+          <div class="hint">For the demo, try <code>sample_data/phishing_sample.eml</code>.</div>
+        </div>
+      </div>
+
+      <div id="result" class="hidden"></div>
+    </section>
+
+    <section id="cases-view" class="view hidden">
+      <div class="panel">
+        <div class="panel-header"><div><h3>Case archive</h3><p>Stored locally in SQLite.</p></div></div>
+        <div id="all-cases" class="case-list"></div>
+      </div>
+    </section>
+
+    <section id="about-view" class="view hidden">
+      <div class="panel prose">
+        <div class="eyebrow">PROJECT</div>
+        <h2>PHISHTRACE AI</h2>
+        <p>This application demonstrates explainable phishing triage and digital evidence organization.</p>
+        <h3>Safety model</h3>
+        <p>The URL analyzer parses submitted URLs rather than automatically browsing to them. This avoids turning the investigation server into an SSRF or malware-fetching service.</p>
+        <h3>Interpretation</h3>
+        <p>Scores are heuristic indicators for triage. They are not proof of maliciousness or safety and should be validated with additional evidence.</p>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="/static/app.js"></script>
+</body>
+</html>
